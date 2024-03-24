@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/09 06:48:36 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/09 06:48:38 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 15:38:21 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:18:09 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	has_duplicates(t_stack *head_a)
 	return (0);
 }
 
-int	again_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	t_stack	*tmp;
 
@@ -55,7 +55,7 @@ int	ft_isdigit(int c)
 
 int	check_alpha(char *av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (av[i] == '-' || av[i] == '+')

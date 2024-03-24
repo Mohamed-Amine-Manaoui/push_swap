@@ -1,46 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_outils.c                                    :+:      :+:    :+:   */
+/*   op_rrotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 18:41:18 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/04 03:06:23 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/01/29 18:41:04 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:14:49 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack **head)
+void	rrotate(t_stack **head)
 {
 	t_stack	*tmp;
-	t_stack	*tmp2;
+	t_stack	*last;
 
 	if (!*head || (*head)->next == NULL)
 		return ;
 	tmp = *head;
-	*head = (*head)->next;
-	tmp->next = NULL;
-	tmp2 = ft_lstlast(*head);
-	tmp2->next = tmp;
+	while (tmp->next != NULL)
+	{
+		last = tmp;
+		tmp = tmp->next;
+	}
+	last->next = NULL;
+	ft_lstadd_front(head, tmp);
 }
 
-void	rotate_a(t_stack **head)
+void	rra(t_stack **head)
 {
-	rotate(head);
-	write(1, "ra\n", 3);
+	rrotate(head);
+	write(1, "rra\n", 4);
 }
 
-void	rotate_b(t_stack **head)
+void	rrb(t_stack **head)
 {
-	rotate(head);
-	write(1, "rb\n", 3);
+	rrotate(head);
+	write(1, "rrb\n", 4);
 }
 
-void	rotate_r(t_stack **head_A, t_stack **head_B)
+void	rrr(t_stack **head_A, t_stack **head_B)
 {
-	rotate(head_A);
-	rotate(head_B);
-	write(1, "rr\n", 3);
+	rrotate(head_A);
+	rrotate(head_B);
+	write(1, "rrr\n", 4);
 }

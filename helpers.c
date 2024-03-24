@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 03:05:11 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/09 21:58:32 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 15:37:17 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:17:06 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	handle_error(char *str)
 	while (str[i])
 	{
 		if (((str[i] == '-' || str[i] == '+') && !(str[i + 1] >= 48 && str[i
-					+ 1] <= 57)) || check_alpha(str))
+						+ 1] <= 57)) || check_alpha(str))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
@@ -28,6 +28,7 @@ void	handle_error(char *str)
 		i++;
 	}
 }
+
 void	check_overflow(long res, int signe)
 {
 	if (res * signe > 2147483647 || res * signe < -2147483648)
@@ -36,6 +37,7 @@ void	check_overflow(long res, int signe)
 		exit(1);
 	}
 }
+
 int	ft_atoi(const char *str)
 {
 	int		i;
@@ -64,7 +66,7 @@ int	ft_atoi(const char *str)
 	return (res * signe);
 }
 
-int	ft_count_kalimat(char *s, char c)
+int	count_kalimat(char *s, char c)
 {
 	int	i;
 	int	count;
@@ -85,7 +87,7 @@ int	ft_count_kalimat(char *s, char c)
 	return (count);
 }
 
-char	**split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	t_chunk	init;
 	char	**ptr;
@@ -94,7 +96,7 @@ char	**split(char *s, char c)
 	init.k = 0;
 	if (!s)
 		return (NULL);
-	ptr = ft_malloc((ft_count_kalimat(s, c) + 1) * sizeof(char *), 'm');
+	ptr = ft_malloc((count_kalimat(s, c) + 1) * sizeof(char *), 'm');
 	if (!ptr)
 		return (NULL);
 	while (s[init.i])

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   b_to_a.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/23 15:37:45 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:21:27 by mmanaoui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	find_max(t_stack *head, int target)
@@ -37,7 +49,7 @@ void	first_condition(t_stack **a, t_stack **b, t_chunk *init)
 {
 	if ((*b)->data == init->tab[init->max_tab])
 	{
-		push_B_to_A(b, a);
+		pa(b, a);
 		init->max_tab--;
 	}
 	else if (find_max(*a, init->tab[init->max_tab]))
@@ -51,29 +63,30 @@ void	first_condition(t_stack **a, t_stack **b, t_chunk *init)
 			&& ((ft_lstlast(*a)->data) == init->tab[init->first_max]
 				|| (*b)->data > (ft_lstlast(*a)->data)))
 		{
-			push_B_to_A(b, a);
-			rotate_a(a);
+			pa(b, a);
+			ra(a);
 		}
 		else
 			search_and_move_b(b, init->tab[init->max_tab]);
 	}
 }
+
 void	sort_3(t_stack **head)
 {
 	int	max_data;
+
 	if (!(*head) || !(*head)->next || !(*head)->next->next)
 		return ;
 	max_data = max_of_(head);
 	if (max_data == (*head)->data)
-		rotate_a(head);
+		ra(head);
 	else if (max_data == (*head)->next->data)
-		rev_rotate_a(head);
+		rra(head);
 	if ((*head)->data > ((*head)->next->data))
-		swap_a(head);
+		sa(head);
 }
 
-
-void	xi7aja2(t_stack *a, t_stack *b, t_chunk *init)
+void	b_to_a(t_stack *a, t_stack *b, t_chunk *init)
 {
 	init->first_max = ft_lstsize(b) - 1;
 	init->max_tab = ft_lstsize(b) - 1;
@@ -83,5 +96,5 @@ void	xi7aja2(t_stack *a, t_stack *b, t_chunk *init)
 		first_condition(&a, &b, init);
 	}
 	while (a->data > init->tab[0])
-		rev_rotate_a(&a);
+		rra(&a);
 }

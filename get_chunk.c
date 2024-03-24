@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_to_chunk.c                                    :+:      :+:    :+:   */
+/*   get_chunk.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 03:05:51 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/04 03:05:56 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 15:38:13 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/23 23:42:03 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_to_chunk(t_stack **a, t_stack **b, t_chunk *init)
+void	get_chunk(t_stack **a, t_stack **b, t_chunk *init)
 {
 	int	size;
 	int	size_b;
@@ -25,12 +25,12 @@ void	push_to_chunk(t_stack **a, t_stack **b, t_chunk *init)
 		if ((*a)->data >= init->tab[init->start]
 			&& (*a)->data <= init->tab[init->end])
 		{
-			push_A_to_B(a, b);
+			pb(a, b);
 			if ((*b)->next != NULL && (*b)->data < init->tab[init->mid])
-				rotate_b(b);
+				rb(b);
 		}
 		else
-			rotate_a(a);
+			ra(a);
 		size_b = ft_lstsize(*b);
 	}
 }

@@ -5,44 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 21:14:51 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/08 18:00:23 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 17:31:41 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:21:56 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void initialize_stacks2(int ac, char **av, t_stack **a, t_stack **b) 
-{
-    t_stack *node;
-    int i;
-    int data;
-
-    *a = NULL;
-    *b = NULL;
-    i = 1;
-    while (i < ac)
-    {
-        data = ft_atoi(av[i]);
-        node = ft_lstnew(data);
-        ft_lstadd_back(a, node);
-        i++;
-    }
-    if (has_duplicates(*a))
-    {
-        write(2, "Error\n", 6);
-        exit(0);
-    }
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char	**h_num;
+	char	*str;
 
-	initialize_stacks2(ac, av, &a, &b);
-	check_instruction(&a, &b);
-	if (again_sorted(a) && !b)
+	a = NULL;
+	b = NULL;
+	str = valid_data(ac, av);
+	h_num = ft_split(str, ' ');
+	init_stack(h_num, &a);
+	check_instruction_2(&a, &b);
+	if (is_sorted(a) && !b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

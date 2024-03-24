@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/24 00:08:54 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:09:10 by mmanaoui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -10,11 +22,11 @@
 #  define BUFFER_SIZE 1
 # endif
 
-char    *get_next_line(int fd);
-char    *ft_strchr(const char *str, int c);
-char    *ft_strjoin(char *s1, char *s2);
-int    ft_strlen(char *str);
-char    *ft_strdup(char *src);
-char    *ft_substr(char *s, unsigned int start, size_t len);
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen(char *str);
+char	*ft_strdup(char *src);
+char	*ft_substr(char *s, unsigned int start, size_t len);
 void	*ft_malloc(size_t size, char f_or_m);
 #endif

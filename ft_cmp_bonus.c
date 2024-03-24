@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 21:15:06 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/05 21:15:08 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 17:29:01 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:18:36 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -25,22 +25,23 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (1);
 }
-void	ft_cmp2(t_stack **a, t_stack **b, char *line)
+
+void	checks_triples(t_stack **a, t_stack **b, char *line)
 {
 	if (ft_strcmp(line, "rra\n"))
-		rev_rotate(a);
+		rrotate(a);
 	else if (ft_strcmp(line, "rrb\n"))
-		rev_rotate(b);
+		rrotate(b);
 	else if (ft_strcmp(line, "rrr\n"))
 	{
-		rev_rotate(a);
-		rev_rotate(b);
+		rrotate(a);
+		rrotate(b);
 	}
 	else
 		write(1, "Error\n", 6);
 }
 
-void	ft_cmp(t_stack **a, t_stack **b, char *line)
+void	checks(t_stack **a, t_stack **b, char *line)
 {
 	if (ft_strcmp(line, "sa\n"))
 		swap(a);
@@ -65,31 +66,17 @@ void	ft_cmp(t_stack **a, t_stack **b, char *line)
 		rotate(b);
 	}
 	else
-		ft_cmp2(a, b, line);
+		checks_triples(a, b, line);
 }
 
-int	again_sorted(t_stack *a)
-{
-	t_stack	*tmp;
-
-	tmp = a;
-	while (tmp->next)
-	{
-		if (tmp->data > tmp->next->data)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-void	check_instruction(t_stack **a, t_stack **b)
+void	check_instruction_2(t_stack **a, t_stack **b)
 {
 	char	*line;
 
 	line = get_next_line(0);
 	while (line)
 	{
-		ft_cmp(a, b, line);
+		checks(a, b, line);
 		line = get_next_line(0);
 	}
 }

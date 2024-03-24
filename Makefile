@@ -2,16 +2,17 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = push_outils.c push_to_chunk.c quick_sort.c rev_rotate_outils.c \
-rotate_outils.c swap_outils.c push_swap.c \
-ft_atoi.c ft_linked_list.c search_and_move.c \
-xi7aja.c xi7aja2.c sort_1_2_3_4_5_6.c ft_malloc.c \
+SRC = op_push.c get_chunk.c quick_sort.c op_rrotate.c \
+op_rotate.c op_swap.c push_swap.c \
+helpers.c ft_linked_list.c search_and_move.c \
+a_to_b.c b_to_a.c sort_all.c ft_malloc.c \
 get_next_line/get_next_line.c \
 get_next_line/get_next_line_utils.c \
-handle_error.c
-SRCB = checker_bonus.c push_outils.c rev_rotate_outils.c ft_linked_list.c \
-rotate_outils.c swap_outils.c ft_atoi.c get_next_line/get_next_line.c \
-get_next_line/get_next_line_utils.c \
+handle_error.c valid_args.c \
+
+SRCB = op_push.c op_rotate.c ft_linked_list.c \
+op_swap.c helpers.c get_next_line/get_next_line.c \
+get_next_line/get_next_line_utils.c handle_error.c checker_bonus.c ft_cmp_bonus.c ft_malloc.c op_rrotate.c valid_args.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -19,7 +20,7 @@ OBJB = $(SRCB:.c=.o)
 
 NAME = push_swap
 
-NAMEB = checker
+NAMEB = checker_bonus
 
 all : $(NAME)
 

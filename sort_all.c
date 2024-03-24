@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_1_2_3_4_5_6.c                                 :+:      :+:    :+:   */
+/*   sort_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 20:08:59 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/04 20:25:40 by mmanaoui         ###   ########.fr       */
+/*   Created: 2024/03/23 17:01:12 by mmanaoui          #+#    #+#             */
+/*   Updated: 2024/03/24 00:10:53 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void sort_2(t_stack **head)
+void	sort_2(t_stack **head)
 {
 	if (!(*head) || !(*head)->next)
 		return ;
 	if ((*head)->data > (*head)->next->data)
-		swap_a(head);
+		sa(head);
 }
-void sort_4(t_stack **a, t_stack **b)
+
+void	sort_4(t_stack **a, t_stack **b)
 {
-	int i;
-	int size;
-	int max;
+	int	i;
+	int	size;
+	int	max;
 
 	i = 0;
 	if (!(*a) || !(*a)->next)
@@ -32,24 +33,23 @@ void sort_4(t_stack **a, t_stack **b)
 	max = max_of_(a);
 	while (i < size)
 	{
+		search_and_move_a(a, max);
 		if ((*a)->data == max)
 		{
-			push_A_to_B(a, b);
+			pb(a, b);
 			i++;
 		}
-		else
-			rotate_a(a);
 	}
 	sort_3(a);
-	push_B_to_A(b, a);
-	rotate_a(a);
+	pa(b, a);
+	ra(a);
 }
 
-void sort_5(t_stack **a, t_stack **b)
+void	sort_5(t_stack **a, t_stack **b)
 {
-	int i;
-	int size;
-	int max;
+	int	i;
+	int	size;
+	int	max;
 
 	i = 0;
 	if (!(*a) || !(*a)->next)
@@ -58,24 +58,23 @@ void sort_5(t_stack **a, t_stack **b)
 	max = max_of_(a);
 	while (i < size)
 	{
+		search_and_move_a(a, max);
 		if ((*a)->data == max)
 		{
-			push_A_to_B(a, b);
+			pb(a, b);
 			i++;
 		}
-		else
-			rotate_a(a);
 	}
 	sort_4(a, b);
-	push_B_to_A(b, a);
-	rotate_a(a);
+	pa(b, a);
+	ra(a);
 }
 
-void sort_6(t_stack **a, t_stack **b)
+void	sort_6(t_stack **a, t_stack **b)
 {
-	int i;
-	int size;
-	int max;
+	int	i;
+	int	size;
+	int	max;
 
 	i = 0;
 	if (!(*a) || !(*a)->next)
@@ -86,36 +85,37 @@ void sort_6(t_stack **a, t_stack **b)
 	{
 		if ((*a)->data == max)
 		{
-			push_A_to_B(a, b);
+			pb(a, b);
 			i++;
 		}
 		else
-			rotate_a(a);
+			ra(a);
 	}
 	sort_5(a, b);
-	push_B_to_A(b, a);
-	rotate_a(a);
+	pa(b, a);
+	ra(a);
 }
-void	sort_1_2_3_4_5_6(t_stack **a, t_stack **b, t_chunk *init)
-{
-    int	size;
 
-    size = ft_lstsize(*a);
-    if (size == 1)
-        return ;
-    else if (size == 2)
-        sort_2(a);
-    else if (size == 3)
-        sort_3(a);
-    else if (size == 4)
-        sort_4(a, b);
-    else if (size == 5)
-        sort_5(a, b);
-    else if (size == 6)
-        sort_6(a, b);
-    else 
-    {
-        xi7aja(a, b, init);
-        xi7aja2(*a, *b, init);
-    }
+void	sort_all(t_stack **a, t_stack **b, t_chunk *init)
+{
+	int	size;
+
+	size = ft_lstsize(*a);
+	if (size == 1)
+		return ;
+	else if (size == 2)
+		sort_2(a);
+	else if (size == 3)
+		sort_3(a);
+	else if (size == 4)
+		sort_4(a, b);
+	else if (size == 5)
+		sort_5(a, b);
+	else if (size == 6)
+		sort_6(a, b);
+	else
+	{
+		a_to_b(a, b, init);
+		b_to_a(*a, *b, init);
+	}
 }

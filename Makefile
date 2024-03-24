@@ -42,3 +42,5 @@ fclean: clean
 	rm -rf $(NAME) $(NAMEB)
 
 re: fclean all clean
+
+.SECONDARY: $(OBJ) $(OBJB)

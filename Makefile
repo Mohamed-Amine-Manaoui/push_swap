@@ -24,10 +24,15 @@ NAMEB = checker_bonus
 
 all : $(NAME)
 
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-bonus: $(OBJB)
+bonus: $(NAMEB)
+
+$(NAMEB) : $(OBJB)
 	$(CC) $(CFLAGS) $(OBJB) -o $(NAMEB)
 
 clean:

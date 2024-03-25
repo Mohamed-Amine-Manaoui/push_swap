@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:29:01 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 01:57:46 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/03/25 00:17:35 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	checks(t_stack **a, t_stack **b, char *line)
 		swap(b);
 	}
 	else if (ft_strcmp(line, "pa\n"))
-		push(a, b);
-	else if (ft_strcmp(line, "pb\n"))
 		push(b, a);
+	else if (ft_strcmp(line, "pb\n"))
+		push(a, b);
 	else if (ft_strcmp(line, "ra\n"))
 		rotate(a);
 	else if (ft_strcmp(line, "rb\n"))

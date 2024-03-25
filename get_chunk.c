@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:38:13 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/23 23:42:03 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/03/24 21:55:05 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	get_chunk(t_stack **a, t_stack **b, t_chunk *init)
 	size_b = 0;
 	while (size_b <= init->end - init->start)
 	{
-		size_b = ft_lstsize(*b);
 		if ((*a)->data >= init->tab[init->start]
 			&& (*a)->data <= init->tab[init->end])
 		{

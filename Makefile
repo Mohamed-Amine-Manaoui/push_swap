@@ -20,15 +20,16 @@ OBJB = $(SRCB:.c=.o)
 
 NAME = push_swap
 
-NAMEB = checker_bonus
+NAMEB = checker
 
 all : $(NAME)
 
-.c.o:
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 bonus: $(NAMEB)
 

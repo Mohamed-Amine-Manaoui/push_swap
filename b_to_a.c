@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:37:45 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 00:21:27 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/03/24 22:35:11 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	first_condition(t_stack **a, t_stack **b, t_chunk *init)
 	}
 	else
 	{
-		if (ft_lstsize(*a) >= 1
+		if (ft_lstsize(*a) > 0
 			&& ((ft_lstlast(*a)->data) == init->tab[init->first_max]
 				|| (*b)->data > (ft_lstlast(*a)->data)))
 		{

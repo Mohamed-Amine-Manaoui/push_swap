@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:38:21 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 00:18:09 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/03/25 00:22:58 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	has_duplicates(t_stack *head_a)
 {
 	t_stack	*i;
 	t_stack	*j;
-
+	
 	i = head_a;
 	while (i != NULL)
 	{
@@ -35,7 +35,9 @@ int	has_duplicates(t_stack *head_a)
 int	is_sorted(t_stack *a)
 {
 	t_stack	*tmp;
-
+ 
+	if (!a)
+		return (0);
 	tmp = a;
 	while (tmp->next)
 	{

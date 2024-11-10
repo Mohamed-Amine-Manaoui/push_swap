@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 00:08:37 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 00:08:39 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/11/10 18:00:35 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(char *src)
 	char	*dest;
 	int		i;
 
-	dest = malloc((ft_strlen(src) + 1) * sizeof(char));
+	dest = ft_malloc((ft_strlen(src) + 1) * sizeof(char), 'm');
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
@@ -85,7 +85,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
-	ptr = (char *)malloc((len + 1) * sizeof(char));
+	ptr = (char *)ft_malloc((len + 1) * sizeof(char), 'm');
 	if (!ptr)
 		return (NULL);
 	i = 0;

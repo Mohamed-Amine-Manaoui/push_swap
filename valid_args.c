@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:07:49 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 00:10:14 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:43:43 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_stack(char **h_num, t_stack **a)
 	if (has_duplicates(*a))
 	{
 		write(2, "Error\n", 6);
-		exit(1);
+		(ft_malloc(0, 'f'), exit(1));
 	}
 }
 
@@ -63,7 +63,7 @@ char	*valid_data(int ac, char **av)
 		{
 			ft_malloc(0, 'f');
 			write(2, "Error\n", 6);
-			exit(1);
+			(ft_malloc(0, 'f'), exit(1));
 		}
 		if (av[i][0] == 0)
 			i++;

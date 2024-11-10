@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:38:53 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 00:13:11 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:50:03 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int ac, char **av)
 		exit(0);
 	}
 	sort_all(&a, &b, &init);
+	ft_malloc(0, 'f');
 	return (0);
 }

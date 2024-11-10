@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
 
 SRC = op_push.c get_chunk.c quick_sort.c op_rrotate.c \
 op_rotate.c op_swap.c push_swap.c \

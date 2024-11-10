@@ -6,7 +6,7 @@
 /*   By: mmanaoui <mmanaoui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:37:17 by mmanaoui          #+#    #+#             */
-/*   Updated: 2024/03/24 20:46:44 by mmanaoui         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:43:43 by mmanaoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	handle_error(char *str)
 						+ 1] <= 57)) || check_alpha(str))
 		{
 			write(2, "Error\n", 6);
-			exit(1);
+			(ft_malloc(0, 'f'), exit(1));
 		}
 		i++;
 	}
@@ -34,7 +34,7 @@ void	check_overflow(long res, int signe)
 	if (res * signe > 2147483647 || res * signe < -2147483648)
 	{
 		write(2, "Error\n", 6);
-		exit(1);
+		(ft_malloc(0, 'f'), exit(1));
 	}
 }
 
